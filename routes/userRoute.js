@@ -14,6 +14,8 @@ const {
 
 //initializing router
 const router = express.Router();
+
+// Routes
 router.put("/reset-password/:token", resetPassword);
 router.delete("/delete", deleteUser);
 router.post("/forgot-password-token", authMiddleware, forgotPasswordToken);
