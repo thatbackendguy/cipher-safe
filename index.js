@@ -1,15 +1,26 @@
+//importing libraries
 const express = require('express');
 const bodyParser = require('body-parser');
+const dotenv = require("dotenv").config()
+const cookieParser = require("cookie-parser");
+
+//importing middlewares
+const dbConnect = require('./config/dbConnect');
+const { notFound, errorHandler } = require('./middlewares/errorHandler');
+const authRoute = require("./routes/authRoute");
+const userRoute = require("./routes/userRoute");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+dbConnect();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-app.use(bodyParser.urlencoded({extended: true}));
+// Routes
+app.use('/api/user',userRoute)
+app.use('/api/auth',authRoute)
 
-// if you want to change the port change here
-const port = 3000;
-
-app.get('/',function (req,res){
-    res.json({'message':'Server connection successful!'});
-});
-
-app.listen(process.env.PORT || port, () => console.log('Server is running at port: '+ port + '/' + process.env.PORT));
+app.use(notFound);
+app.use(errorHandler);
+app.listen(PORT, () => console.log('Server is running at port: '+ PORT));
