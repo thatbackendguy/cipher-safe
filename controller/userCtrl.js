@@ -274,31 +274,49 @@ const updatePassword = asyncHandler(async (req, res) => {
 				new: true,
 			}
 		);
-        res.json({
-            message:"Password updated successfully!"
-        })
+		res.json({
+			message: "Password updated successfully!",
+		});
 	} catch (error) {
 		throw new Error(error);
 	}
 });
 
-const getDecryptedPass = asyncHandler(async (req,res)=>{
-    const {_id} = req.user;
-    validateMongoDbId(_id);
-    const {id} = req.params;
-    try {
-        const pass = await Password.findById(id);
-        const user = await User.findById(_id);
-        res.json({
-            "email": pass.email,
-            "password": CryptoJS.AES.decrypt(pass.password,process.env.AES_SECRET).toString(CryptoJS.enc.Utf8),
-            "owner": `${user.firstname} ${user.lastname}`,
-            "owner-email":user.email,
-        })
-    } catch (error) {
-        throw new Error(error)
-    }
-})
+const getDecryptedPass = asyncHandler(async (req, res) => {
+	const { _id } = req.user;
+	validateMongoDbId(_id);
+	const { id } = req.params;
+	try {
+		var pass;
+		const user = await User.findById({ _id });
+		if (!user) throw new Error("No user found, please login again!");
+		const passwordIds = user.user_passwords;
+		for (let i = 0; i < passwordIds.length; i++) {
+			if (id == passwordIds[i]) {
+				pass = await Password.findById(id);
+				break;
+			}
+		}
+		if (pass === undefined) {
+			res.json({
+				message: "Password not found!",
+			});
+		} else {
+			res.json({
+				name: pass.name,
+				email: pass.email,
+				password: CryptoJS.AES.decrypt(
+					pass.password,
+					process.env.AES_SECRET
+				).toString(CryptoJS.enc.Utf8),
+				owner: `${user.firstname} ${user.lastname}`,
+				"owner-email": user.email,
+			});
+		}
+	} catch (error) {
+		throw new Error(error);
+	}
+});
 
 module.exports = {
 	createUser,
@@ -312,5 +330,5 @@ module.exports = {
 	addPassword,
 	getUserPasswords,
 	deletePassword,
-    getDecryptedPass
+	getDecryptedPass,
 };
