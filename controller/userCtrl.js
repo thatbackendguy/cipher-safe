@@ -100,8 +100,8 @@ const loginUser = asyncHandler(async (req, res) => {
 // logout
 const logout = asyncHandler(async (req, res) => {
 	const cookie = req.cookies;
-	if (!cookie?.refreshToken) throw new Error("No Refresh Token in Cookies");
-	const refreshToken = cookie.refreshToken;
+	const refreshToken = cookie?.refreshToken;
+	if (!refreshToken) throw new Error("No Refresh Token in Cookies");
 	const user = await User.findOne({ refreshToken });
 	if (!user) {
 		res.clearCookie("refreshToken", {
