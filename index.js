@@ -20,7 +20,12 @@ app.use(cookieParser());
 // Routes
 app.use('/api/user',userRoute)
 app.use('/api/auth',authRoute)
-
+app.get('/',(req,res)=>{
+    res.json({
+        message: "Welcome to CipherSafe APIs",
+        "developed-by":"https://www.github.com/yashpra1010/"
+    })
+})
 app.use(notFound);
 app.use(errorHandler);
 
