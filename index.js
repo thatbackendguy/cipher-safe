@@ -23,7 +23,8 @@ app.use('/api/auth',authRoute)
 app.get('/',(req,res)=>{
     res.json({
         message: "Welcome to CipherSafe APIs",
-        "developed-by":"https://www.github.com/yashpra1010/"
+        "developed-by":"https://yashpra1010.github.io/",
+        "documentation":"https://github.com/yashpra1010/cipher-safe/blob/main/README.md",
     })
 })
 app.use(notFound);
