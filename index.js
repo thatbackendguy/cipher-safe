@@ -12,7 +12,7 @@ const userRoute = require("./routes/userRoute");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-dbConnect();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -23,4 +23,7 @@ app.use('/api/auth',authRoute)
 
 app.use(notFound);
 app.use(errorHandler);
-app.listen(PORT, () => console.log('Server is running at port: '+ PORT));
+
+dbConnect().then(()=>{
+    app.listen(PORT, () => console.log('Server is running at port: '+ PORT));
+});
