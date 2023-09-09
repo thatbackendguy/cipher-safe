@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "c3f4822c-b1fb-4572-b3ee-fc449b91d2a5",
+		"name": "CipherSafe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24632981"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\":\"Yash\",\n    \"lastname\":\"Prajapati\",\n    \"email\":\"yashpra1010@gmail.com\",\n    \"mobile\":\"7285850155\",\n    \"password\":\"yash\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cyan-aware-horse.cyclic.app/api/auth/register",
+					"protocol": "https",
+					"host": [
+						"cyan-aware-horse",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTkzY2QzODFlZGI3OGI2MDNmNDJiZSIsImlhdCI6MTY4Nzc2NDIxOCwiZXhwIjoxNjg3ODUwNjE4fQ.L-8XxTEx4J0gKg_Js9PL1YdnQvM9_U4-tzF0gI_leCE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Amazon Prime Video\",\n    \"email\":\"yashpra1010@gmail.com\",\n    \"password\":\"amazon1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cyan-aware-horse.cyclic.app/api/user/password/add",
+					"protocol": "https",
+					"host": [
+						"cyan-aware-horse",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"password",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"yashpra1010@gmail.com\",\n    \"password\":\"yash\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/auth/login",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"user3@gmail.com\",\n    \"password\":\"yash1010\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/user/delete",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"user",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTgxY2Q4M2I4OGEzZTExODZhMDI2ZiIsImlhdCI6MTY4NzY5NTk0NywiZXhwIjoxNjg3NzgyMzQ3fQ.Lo6TodWQ1H3fR-lESXWjxygz4iEeAMPYXVuztd8Go_Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/user/password/delete/649835b4f690362b7b6819b8",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"user",
+						"password",
+						"delete",
+						"649835b4f690362b7b6819b8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update A Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTgxY2Q4M2I4OGEzZTExODZhMDI2ZiIsImlhdCI6MTY4NzY5NTk0NywiZXhwIjoxNjg3NzgyMzQ3fQ.Lo6TodWQ1H3fR-lESXWjxygz4iEeAMPYXVuztd8Go_Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"netfilx update\",\n    \"password\":\"newpass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}api/user/password/update/64983a2630048eda5c5eafd5",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"user",
+						"password",
+						"update",
+						"64983a2630048eda5c5eafd5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Passwords",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTkzY2QzODFlZGI3OGI2MDNmNDJiZSIsImlhdCI6MTY4Nzc2NDIxOCwiZXhwIjoxNjg3ODUwNjE4fQ.L-8XxTEx4J0gKg_Js9PL1YdnQvM9_U4-tzF0gI_leCE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cyan-aware-horse.cyclic.app/api/user/",
+					"protocol": "https",
+					"host": [
+						"cyan-aware-horse",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Decrypted Password",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://cyan-aware-horse.cyclic.app/api/user/password/decrypt/64993d81b29d8d522a3652e6",
+					"protocol": "https",
+					"host": [
+						"cyan-aware-horse",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"user",
+						"password",
+						"decrypt",
+						"64993d81b29d8d522a3652e6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}api/auth/logout",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
