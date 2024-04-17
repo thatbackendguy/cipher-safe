@@ -1,6 +1,3 @@
----
-slug: cipher-safe
----
 # CipherSafe - Password Manager
 
 ## Introduction
